@@ -1,11 +1,5 @@
 # Local Media Player Deployment Guide (Offline Pod)
 
-## Overview
-
-This document provides the technical instructions required to convert a secondary iOS device into a secure, offline local media player. The architecture eliminates cloud dependencies, stops data telemetry, and reduces the network attack surface of the asset.
-
----
-
 ## Objective
 
 The purpose of this guide is to configure a secondary iOS device as a dedicated, standalone local media player. By applying strict system hardening, total telemetry suppression, and network segmentation, the configuration eliminates data transmissions to external cloud services and minimizes both the physical and digital attack surface of the asset.

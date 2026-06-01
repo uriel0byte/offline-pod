@@ -4,9 +4,13 @@
 
 This document provides the technical instructions required to convert a secondary iOS device into a secure, offline local media player. The architecture eliminates cloud dependencies, stops data telemetry, and reduces the network attack surface of the asset.
 
+---
+
 ## Objective
 
 The purpose of this guide is to configure a secondary iOS device as a dedicated, standalone local media player. By applying strict system hardening, total telemetry suppression, and network segmentation, the configuration eliminates data transmissions to external cloud services and minimizes both the physical and digital attack surface of the asset.
+
+---
 
 ## Environment & Requirements
 
@@ -16,6 +20,7 @@ The purpose of this guide is to configure a secondary iOS device as a dedicated,
     
 -   Network: Local Wi-Fi network (isolated VLAN recommended)
     
+---
 
 ## Technical Implementation
 
@@ -30,6 +35,8 @@ winget install gyan.ffmpeg
 
 Close and restart the PowerShell window to initialize the new environment path variables.
 
+---
+
 ### 2. Audio Acquisition
 
 Create a target directory on your Windows filesystem for the media storage. Use the terminal to navigate to this folder and run the execution command:
@@ -41,6 +48,8 @@ yt-dlp -x --audio-format mp3 --audio-quality 0 "TARGET_YOUTUBE_URL"
 > [![asciicast](https://asciinema.org/a/1171726.svg)](https://asciinema.org/a/1171726)
 
 To automate the download of multiple tracks, replace the individual video URL with a public or unlisted YouTube playlist URL. The binary will process the queue sequentially.
+
+---
 
 ### 3. Metadata and Artwork Injection
 
@@ -59,7 +68,9 @@ Files extracted from streaming platforms lack structured ID3 tags. You must writ
 6.  **For Failed Tracks (Left Pane):** If a file fails matching and remains under "Unclustered Files," highlight it and click **Cluster** then **Lookup** to force a text-based search. 
 
 7.  **For Manual Fixes:** If it still fails, right-click the empty CD icon in the bottom right corner of Picard, choose **Change Front Cover**, select a manually downloaded JPEG/PNG image, and click **Save** directly from the left pane (files do not need to move to the right pane to be saved).
-    
+
+---
+
 ### 4. Wireless Target Deployment
 
 The transfer occurs entirely over the local network layer, bypassing Apple ecosystem software.
@@ -76,6 +87,7 @@ The transfer occurs entirely over the local network layer, bypassing Apple ecosy
     
 6.  Turn off the Sharing via WiFi toggle in VLC as soon as the transfer status hits 100 percent.
     
+---
 
 ## Asset Hardening & Network Isolation
 
@@ -94,6 +106,8 @@ Execute these configuration modifications on the iOS target device to restrict t
 |**Access Control**|Set complex alphanumeric passcode|Prevents physical brute-force access.|
 |**Storage Security**|Enable Erase Data (Bottom of Face ID & Passcode menu)|Triggers cryptographic erasure of the file system keys after 10 failed passcode attempts.|
 |**Network Layer**|Forget primary Wi-Fi network; isolate on a Guest VLAN or maintain Airplane Mode|Prevents outbound device telemetry and stops lateral movement on the home network.|
+
+---
 
 ## Verification
 

@@ -54,12 +54,12 @@ Files extracted from streaming platforms lack structured ID3 tags. You must writ
     
 4.  Highlight the tracks and click **Scan** on the top menu bar. This triggers acoustic fingerprinting to identify the audio waves against the central database.
     
-5.  Review the matches in the right pane. Click the album to verify the cover art preview in the bottom right corner.
+5.  Review the matches in the right pane. Click the album to verify the cover art preview in the bottom right corner. Select the matched albums and click **Save**.
     
-6.  Select the matched albums and click **Save**.
-    
-If a file fails acoustic matching, manually edit the tags or drag the file onto a manually searched database entry within the interface before saving.
+6.  **For Failed Tracks (Left Pane):** If a file fails matching and remains under "Unclustered Files," highlight it and click **Cluster** then **Lookup** to force a text-based search. 
 
+7.  **For Manual Fixes:** If it still fails, right-click the empty CD icon in the bottom right corner of Picard, choose **Change Front Cover**, select a manually downloaded JPEG/PNG image, and click **Save** directly from the left pane (files do not need to move to the right pane to be saved).
+    
 ### 4. Wireless Target Deployment
 
 The transfer occurs entirely over the local network layer, bypassing Apple ecosystem software.
@@ -70,7 +70,7 @@ The transfer occurs entirely over the local network layer, bypassing Apple ecosy
     
 3.  Open VLC, select the Network tab, and enable the **Sharing via WiFi** toggle. Note the local IP address displayed.
     
-4.  On the Windows PC, open a web browser and input the target IP address into the address bar.
+4.  Ensure the Windows PC is connected to the same network segment as the iOS device. Open a web browser on the PC and input the target IP address into the address bar.
     
 5.  Drag the tagged audio files from your Windows directory into the browser window.
     
@@ -82,7 +82,7 @@ The transfer occurs entirely over the local network layer, bypassing Apple ecosy
 Execute these configuration modifications on the iOS target device to restrict telemetry and secure the perimeter.
 
 |**Setting Directory**|**Action Required**|**Purpose**|
-|----------------|-------------------------------|-----------------------------
+|-------------------|-------------------|-----------|
 |**Lockdown Mode**|Settings > Privacy & Security > Lockdown Mode > Turn On|Strips complex web binaries, blocks unauthorized wired access, and stops unauthorized configuration profiles.|
 |**Primary Telemetry**|Settings > Privacy & Security > Analytics & Improvements|Toggle off all options including Share iPhone Analytics, Share iCloud Analytics, and Improve Siri & Dictation to halt diagnostic data transmissions.|
 |**Buried Telemetry**|Settings > Privacy & Security > Location Services > System Services|Scroll to the bottom interface section labeled Product Improvement. Deactivate iPhone Analytics, Routing & Traffic, and Improve Maps.|

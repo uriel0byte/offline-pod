@@ -65,6 +65,29 @@ Files extracted from streaming platforms lack structured ID3 tags. You must writ
 
 ---
 
+### 3.1 Alternative Acquisition Methods
+
+For existing Spotify libraries or purchased Apple Media, use the following workflows. These methods output pre-tagged files, bypassing the `yt-dlp` and MusicBrainz steps entirely.
+
+#### SpotiFLAC (Spotify Integration)
+SpotiFLAC reads Spotify playlist metadata and extracts corresponding lossless audio from high-resolution providers. Do not use the iOS mobile `.ipa` version, as sideloading requires Developer Mode and compromises the device's network isolation.
+
+1. Download the Windows binary from the official SpotiFLAC GitHub repository Releases page.
+2. Extract the application to a local Windows directory.
+3. Paste a Spotify track or playlist URL into the interface and click Fetch.
+4. Select the target audio source and execute the download. 
+5. The resulting FLAC files include embedded ID3 tags and high-resolution cover art. Proceed directly to Wireless Target Deployment.
+
+#### iTunes & Apple Music Purchases
+DRM-free media purchased directly from the iTunes Store can be transferred natively to the iOS device. DRM-protected files (`.m4p`) from an active Apple Music streaming subscription are encrypted and will fail to play in VLC.
+
+1. Open iTunes or the Apple Music application on the Windows host machine.
+2. Navigate to the purchased library and download the tracks locally.
+3. Locate the `.m4a` files on the Windows filesystem. The default path is: `C:\Users\[Your Username]\Music\iTunes\iTunes Media\Music`.
+4. Proceed directly to Wireless Target Deployment using these `.m4a` files.
+
+---
+
 ### 4. Wireless Target Deployment
 
 The transfer occurs entirely over the local network layer, bypassing Apple ecosystem software.
